@@ -1,0 +1,234 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    transition: all .5s;
+}
+body{
+    background: linear-gradient(to right , #141E30, #243b55);
+}
+body > article{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    min-height: 400px;
+}
+body > article > section:first-of-type,
+body > article > section:last-of-type{
+    width: 20%;
+    height: 90vh;
+    background: linear-gradient(to right , #141E30, #243b55);
+    overflow: auto;
+    box-shadow: 0 0 5px 2px black;
+}
+body > article > section:first-of-type{
+    border-radius: 0 15px 15px 0;
+    background: linear-gradient(to left , #141E30, #243b55);
+}
+body > article > section:last-of-type{
+    border-radius: 15px 0 0 15px;
+}
+body > article > section:nth-of-type(2){
+    width: 45%;
+    height: 45%;
+    border-radius: 15px;
+    background: linear-gradient(to button , #141E30, #243b55);
+    box-shadow: 0 0 5px 2px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+body > article > section:nth-of-type(2) p{
+    background-color: white;
+    margin-bottom: 25px;
+    font-size: xx-large;
+    padding: 8px 0;
+    border-radius: 10px;
+    max-width: 90%;
+    min-width: 70%;
+    text-align: center;
+}
+body > article > section:nth-of-type(2) > button{
+    font-size: x-large;
+    padding: 2px 13px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 2px 2px gray;
+    cursor: pointer;
+}
+h1{
+    border: 1px solid;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    margin-top: 5px;
+    border-radius: 5px;
+    padding: 5px 0;
+    cursor: auto;
+    color: white;
+    position: relative;
+}
+h1 span{
+    position: absolute;
+    width: 110%;
+    height: 250%;
+    background-color: gray;
+    z-index: 1;
+    top: 135%;
+    left: -5%;
+    display: none;
+    border-radius: 5px;
+}
+h1 span::before{
+    position: absolute;
+    content: '';
+    border:10px solid transparent;
+    border-bottom:10px solid gray ;
+    display: inline-block;
+    top: -23%;
+    left: 3%;
+}
+h1:hover span{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+h1 span div{
+    width: 27% ;
+    height: 76%;
+    background-color: #fff;
+    border-radius: 5px;
+}
+h1:last-of-type{
+    margin-bottom: 15px;
+}
+section > div {
+    margin-bottom: 25px;
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+}
+section > div > button{
+    padding:0 5px;
+    border-radius: 5px;
+    border: 1px solid;
+    cursor: pointer;
+    transition: all 1s;
+    display: none;
+}
+span div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+span div p {
+    color: black;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+img{
+    width: 6%;
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    transition: .5s;
+    cursor: pointer;
+}
+.imgTransform{
+    transform: translate(calc(var(--i)*-170%));
+    opacity: 1 !important;
+}
+.imgRotate{
+    transform: rotate(45deg);
+}
+img:not(:nth-of-type(3)){
+    opacity: 0;
+} 
+.divMenu1,
+.divMenu2 {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    z-index: 999;
+    cursor: pointer;
+}
+.divMenu1{
+    top: 20px;
+    left: 30px;
+}
+.divMenu2{
+    right: 30px;
+    top: 20px;
+}
+
+.divMenu1 span,
+.divMenu2 span {
+    display: inline-block;
+    width: 50px;
+    height: 5px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    transition: all .5s;
+}
+
+.divMenu1 span:not(:first-of-type) ,
+.divMenu2 span:not(:first-of-type) {
+    margin-top: 8px;
+}
+
+.showMenu span:nth-of-type(2) {
+    opacity: 0;
+}
+
+.showMenu span:nth-of-type(1) {
+    transform: rotate(405deg) translate(9px, 8px)
+}
+
+.showMenu span:nth-of-type(3) {
+    transform: rotate(-405deg) translate(10px, -9px)
+}
+
+@media screen and (max-width:800px) {
+    .divMenu1,
+    .divMenu2{
+        display: flex;
+    }
+    .showFirstSection{
+        display: block !important;
+        position: absolute;
+        left: 0;
+        top: 70px;
+        width: 200px !important;
+        z-index: 999;
+    }
+    .showLastSection{
+        display: block !important;
+        position: absolute;
+        right:0;
+        top: 70px;
+        width: 200px !important;
+        z-index: 999;
+    }
+    section:first-of-type,
+    section:last-of-type{
+        display: none;
+    }
+    article{
+        justify-content: center !important;
+    }
+    section:nth-of-type(2){
+        width: 70% !important;
+    }
+}
+@media screen and (max-width:500px) {
+    section:nth-of-type(2){
+        width: 95% !important;
+    }
+}
